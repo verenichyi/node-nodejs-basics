@@ -8,16 +8,14 @@ import('./files/c.js');
 const require = createRequire(import.meta.url);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const random = Math.random();
-const aJson = require('./files/a.json');
-const bJson = require('./files/b.json');
 
+const random = Math.random();
 let unknownObject;
 
 if (random > 0.5) {
-    unknownObject = aJson;
+    unknownObject = require('./files/a.json');
 } else {
-    unknownObject = bJson;
+    unknownObject = require('./files/b.json');
 }
 
 console.log(`Release ${release()}`);
